@@ -3,6 +3,12 @@ import Cookies from "js-cookie";
 import { useRouter } from 'next/navigation';
 
 export default function PagePrivate() {
+    const { push, refresh } = useRouter();
+  const handlerRemoveToken = () => {
+    Cookies.remove('token');
+    push('/');
+    refresh();
+  };
    
     return (
         <div>
